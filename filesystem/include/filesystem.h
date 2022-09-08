@@ -20,11 +20,15 @@ public:
 
 private:
 
+    QString configDir;
+
     FileSystem() {}
     FileSystem(const FileSystem &) = delete;
     FileSystem &operator=(FileSystem &) = delete;
 
     QString getLevelUpDirectory(QString path, int num_levels_up);
+
+    void setConfigDir(const QString &workDir, const QString &dirName);
 };
 
 #endif // FILESYSTEM_H

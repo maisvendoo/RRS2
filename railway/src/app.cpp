@@ -1,4 +1,5 @@
 #include    "app.h"
+#include    "filesystem.h"
 
 //------------------------------------------------------------------------------
 //
@@ -21,5 +22,7 @@ App::~App()
 //------------------------------------------------------------------------------
 int App::exec()
 {
+    FileSystem &fs = FileSystem::getInstance();
+
     return QCoreApplication::exec();
 }
