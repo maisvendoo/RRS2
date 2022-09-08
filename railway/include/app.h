@@ -21,7 +21,7 @@ public:
 
 private:
 
-
+    QCommandLineParser  cmdParser;
 };
 
 #endif // APP_H
