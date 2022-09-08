@@ -28,7 +28,9 @@ CONFIG(debug, debug|release) {
 }
 
 INCLUDEPATH += ./include
+INCLUDEPATH += ../common-headers/include
 INCLUDEPATH += ../filesystem/include
 
 HEADERS += $$files(./include/*.h)
+HEADERS += $$files(../common-headers/include/*.h)
 SOURCES += $$files(./src/*.cpp)
