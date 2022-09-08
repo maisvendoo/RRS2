@@ -18,7 +18,16 @@ public:
 
     static FileSystem &getInstance();
 
-    static QString combine(const QString &path1, const QString &path2);
+    /// Сборка пути из двух половинок
+    QString combinePath(const QString &path1, const QString &path2);
+
+    QString getConfigDir() const { return configDir; }
+
+    QString getRoutesDir() const { return routesDir; }
+
+    QString getDataDir() const {return dataDir; }
+
+    QString getModulesDir() const { return modulesDir; }
 
 private:
 
@@ -43,6 +52,8 @@ private:
     void setRoutesDir(const QString &name);
 
     void setDataDir(const QString &name);
+
+    void setModulesDir(const QString &name);
 
     QString getLevelUpDirectory(QString path, int num_levels_up);
 

@@ -9,6 +9,8 @@ FileSystem &FileSystem::getInstance()
 
     instance.setConfigDir("cfg");
     instance.setRoutesDir("routes");
+    instance.setDataDir("data");
+    instance.setModulesDir("modules");
 
     return instance;
 }
@@ -16,7 +18,7 @@ FileSystem &FileSystem::getInstance()
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
-QString FileSystem::combine(const QString &path1, const QString &path2)
+QString FileSystem::combinePath(const QString &path1, const QString &path2)
 {
     if (*(path1.end() - 1) != QDir::separator())
         return QDir::toNativeSeparators(path1 + QDir::separator() + path2);
@@ -29,7 +31,7 @@ QString FileSystem::combine(const QString &path1, const QString &path2)
 //------------------------------------------------------------------------------
 void FileSystem::setConfigDir(const QString &name)
 {
-    setDirPath("XDG_DATA_HOME", combine(appName, name), configDir);
+    setDirPath("XDG_DATA_HOME", combinePath(appName, name), configDir);
 }
 
 //------------------------------------------------------------------------------
@@ -37,7 +39,7 @@ void FileSystem::setConfigDir(const QString &name)
 //------------------------------------------------------------------------------
 void FileSystem::setRoutesDir(const QString &name)
 {
-    setDirPath("XDG_DATA_HOME", combine(appName, name), routesDir);
+    setDirPath("XDG_DATA_HOME", combinePath(appName, name), routesDir);
 }
 
 //------------------------------------------------------------------------------
@@ -45,7 +47,15 @@ void FileSystem::setRoutesDir(const QString &name)
 //------------------------------------------------------------------------------
 void FileSystem::setDataDir(const QString &name)
 {
-    setDirPath("XDG_DATA_HOME", combine(appName, name), dataDir);
+    setDirPath("XDG_DATA_HOME", combinePath(appName, name), dataDir);
+}
+
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void FileSystem::setModulesDir(const QString &name)
+{
+    setDirPath("XDG_DATA_HOME", combinePath(appName, name), modulesDir);
 }
 
 //------------------------------------------------------------------------------
