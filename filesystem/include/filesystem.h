@@ -18,17 +18,38 @@ public:
 
     static FileSystem &getInstance();
 
+    static QString combine(const QString &path1, const QString &path2);
+
 private:
 
+    // Имя приложения
+    const QString appName = "RRS";
+
+    // Каталог конфигов
     QString configDir;
+    // Каталог маршрутов
+    QString routesDir;
+
+    QString dataDir;
+
+    QString modulesDir;
 
     FileSystem() {}
     FileSystem(const FileSystem &) = delete;
     FileSystem &operator=(FileSystem &) = delete;
 
+    void setConfigDir(const QString &name);
+
+    void setRoutesDir(const QString &name);
+
+    void setDataDir(const QString &name);
+
     QString getLevelUpDirectory(QString path, int num_levels_up);
 
-    void setConfigDir(const QString &workDir, const QString &dirName);
+    void setDirPath(const QString &baseDirEnv,
+                    const QString &dirName,
+                    QString &dirPath);
+
 };
 
 #endif // FILESYSTEM_H
