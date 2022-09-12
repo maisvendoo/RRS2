@@ -4,6 +4,8 @@
 #include    <QCoreApplication>
 #include    <QCommandLineParser>
 
+#include    "railway-cmd-line.h"
+
 //------------------------------------------------------------------------------
 //
 //------------------------------------------------------------------------------
@@ -22,6 +24,12 @@ public:
 private:
 
     QCommandLineParser  cmdParser;
+
+    railway_cmd_line_t  cmdLine;
+
+    CmdLineParseResult parseCmdLine(QCommandLineParser &parser,
+                                    railway_cmd_line_t &cmdLine,
+                                    QString &errorMessage);
 };
 
 #endif // APP_H

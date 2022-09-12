@@ -14,4 +14,15 @@ struct railway_cmd_line_t
     option_t<QString>   route_dir;
 };
 
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+enum CmdLineParseResult
+{
+    CmdLineOk,
+    CmdLineError,
+    CmdLineVersion,
+    CmdLineHelp
+};
+
 #endif // RAILWAY_CMD_LINE_H
